@@ -9,9 +9,16 @@ import (
 )
 
 func main() {
+	// Init router
 	r := chi.NewRouter()
 
+	// Define routes
 	r.Use(middleware.Logger)
-	r.Get("/", routes.HelloHandler)
+	r.Get("/hello", routes.HelloHandler)
+	r.Get("/auth/register", routes.HelloHandler)
+	r.Get("/auth/login", routes.HelloHandler)
+	r.Get("/auth/verify", routes.HelloHandler)
+
+	// Run the server
 	http.ListenAndServe(":8080", r)
 }
